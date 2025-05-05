@@ -664,7 +664,7 @@ namespace StudentManagementSystem
         }
 
         private void checkBtn_Click(object sender, EventArgs e)
-        {
+        { 
             string removeId = idTextBox.Text;
             if (string.IsNullOrEmpty(removeId))
             {
@@ -672,15 +672,41 @@ namespace StudentManagementSystem
             }
             else 
             {
-                foreach (var l in lecturers)
+                
+                int idToRemove;
+                if(!int.TryParse(removeId, out idToRemove))
                 {
-                    if(l.Id.ToString() == removeId)
-                    {
-                                              
-                    }
+                    MessageBox.Show("Invalid ID format.");
+                    return;
                 }
 
-               
+                List<Lecturer> lecturerList = lecturers.ToList();
+                Lecturer lecturerToRemove = lecturerList.FirstOrDefault(l => l.Id == idToRemove);
+
+                if (lecturerToRemove != null)
+                {
+                    lecturerList.Remove(lecturerToRemove);
+                    lecturers.RemoveAll(i => i.Id == idToRemove);
+                    List<string> newLines = new List<string>();
+                    foreach (Lecturer l in lecturerList)
+                    {
+                        string line = $"{l.Id}, {l.FirstName}, {l.LastName}, {l.Salary}";
+                        newLines.Add(line);
+                    }
+
+                    File.WriteAllLines("lecturers.txt", newLines);
+
+                    MessageBox.Show($"Lecturer with ID: {idToRemove} has been removed.");
+                    
+
+                }
+                else
+                {
+                    MessageBox.Show("Lecturer not found.");
+                }
+
+                
+
             }
             
             ClearInputFields();
