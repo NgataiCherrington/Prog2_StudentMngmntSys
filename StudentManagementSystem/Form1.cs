@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,6 @@ namespace StudentManagementSystem
         private static List<Course> courses;
         private static List<Learner> learners;
         private static List<Lecturer> lecturers;
-        private int nextLearnerId = 1;
         
 
         public Form1()
@@ -60,12 +60,17 @@ namespace StudentManagementSystem
                 firstNameTextBox.Visible = false;
                 lastNameTextBox.Visible = false;
                 courseComboBox.Visible = false;
+                positionComboBox.Visible = false;
+                idTextBox.Visible = false;
                 mark1TextBox.Visible = false;
                 mark2TextBox.Visible = false;
                 mark3TextBox.Visible = false;
                 mark4TextBox.Visible = false;
                 mark5TextBox.Visible = false;
                 saveButton.Visible = false;
+                saveLecturerBtn.Visible = false;
+                checkBtn.Visible = false;
+
 
                 label2.Visible = false; // First Name label
                 label3.Visible = false; // Last Name label
@@ -75,6 +80,8 @@ namespace StudentManagementSystem
                 label7.Visible = false; // Mark 3 label
                 label8.Visible = false; // Mark 4 label
                 label9.Visible = false; // Mark 5 label
+                label10.Visible = false; // Position label  
+                label11.Visible = false; // Search ID label
             }
             else
             {
@@ -84,7 +91,7 @@ namespace StudentManagementSystem
                 lastNameTextBox.Visible = true;
                 courseComboBox.Visible = true;
                 positionComboBox.Visible = false;
-                salaryTextBox.Visible = false;
+                idTextBox.Visible = false;
                 mark1TextBox.Visible = true;
                 mark2TextBox.Visible = true;
                 mark3TextBox.Visible = true;
@@ -92,6 +99,7 @@ namespace StudentManagementSystem
                 mark5TextBox.Visible = true;
                 saveButton.Visible = true;
                 saveLecturerBtn.Visible = false;
+                checkBtn.Visible = false;
 
                 label2.Visible = true; // First Name label
                 label3.Visible = true; // Last Name label
@@ -102,7 +110,7 @@ namespace StudentManagementSystem
                 label8.Visible = true; // Mark 4 label
                 label9.Visible = true; // Mark 5 label
                 label10.Visible = false; // Position label
-                label11.Visible = false; // Salary label
+                label11.Visible = false; // Search ID label
             }
         }   
 
@@ -134,7 +142,7 @@ namespace StudentManagementSystem
                 lastNameTextBox.Visible = true;
                 courseComboBox.Visible = true;
                 positionComboBox.Visible = true;
-                salaryTextBox.Visible = true;
+                idTextBox.Visible = false;
                 mark1TextBox.Visible = false;
                 mark2TextBox.Visible = false;
                 mark3TextBox.Visible = false;
@@ -142,6 +150,7 @@ namespace StudentManagementSystem
                 mark5TextBox.Visible = false;
                 saveLecturerBtn.Visible = true;
                 saveButton.Visible = false;
+                checkBtn.Visible = false;
 
                 label2.Visible = true; // First Name label
                 label3.Visible = true; // Last Name label
@@ -152,7 +161,58 @@ namespace StudentManagementSystem
                 label8.Visible = false; // Mark 4 label
                 label9.Visible = false; // Mark 5 label
                 label10.Visible = true; // Position label
-                label11.Visible = true; // Salary label
+                label11.Visible = false; // Search ID label
+            }
+        }
+
+        private void ToggleRmvLecturerControls(bool showDataGridView)
+        {
+            if (showDataGridView)
+            {
+                dataGridView1.Visible = true;
+
+                firstNameTextBox.Visible = false;
+                lastNameTextBox.Visible = false;
+                courseComboBox.Visible = false;
+                mark1TextBox.Visible = false;
+                mark2TextBox.Visible = false;
+                mark3TextBox.Visible = false;
+                mark4TextBox.Visible = false;
+                mark5TextBox.Visible = false;
+                saveButton.Visible = false;
+
+                label2.Visible = false; // First Name label
+                label3.Visible = false; // Last Name label
+                label4.Visible = false; // Course label
+            }
+            else
+            {
+                dataGridView1.Visible = false;
+
+                firstNameTextBox.Visible = false;
+                lastNameTextBox.Visible = false;
+                courseComboBox.Visible = false;
+                positionComboBox.Visible = false;
+                idTextBox.Visible = true;
+                mark1TextBox.Visible = false;
+                mark2TextBox.Visible = false;
+                mark3TextBox.Visible = false;
+                mark4TextBox.Visible = false;
+                mark5TextBox.Visible = false;
+                saveLecturerBtn.Visible = false;
+                checkBtn.Visible = true;
+                saveButton.Visible = false;
+
+                label2.Visible = false; // First Name label
+                label3.Visible = false; // Last Name label
+                label4.Visible = false; // Course label
+                label5.Visible = false; // Mark 1 label
+                label6.Visible = false; // Mark 2 label
+                label7.Visible = false; // Mark 3 label
+                label8.Visible = false; // Mark 4 label
+                label9.Visible = false; // Mark 5 label
+                label10.Visible = false; // Position label
+                label11.Visible = true; // Search ID label
             }
         }
 
@@ -161,6 +221,8 @@ namespace StudentManagementSystem
             firstNameTextBox.Text = "";
             lastNameTextBox.Text = "";
             courseComboBox.Text = "";
+            positionComboBox.Text = "";
+            idTextBox.Text = "";
             mark1TextBox.Text = "";
             mark2TextBox.Text = "";
             mark3TextBox.Text = "";
@@ -170,7 +232,6 @@ namespace StudentManagementSystem
 
         private void DisplayCourseDetail_btn(object sender, EventArgs e)
         {
-            courses = Utils.SeedCourses();
             //make the column headings
             DataTable courseDataTable = new DataTable();
             courseDataTable.Columns.Clear();
@@ -195,6 +256,7 @@ namespace StudentManagementSystem
             dataGridView1.DataSource = courseDataTable;
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ReadOnly = true;
+            ToggleControls(true);
         }
 
         private void DisplayAllMarks_btn(object sender, EventArgs e)
@@ -485,7 +547,7 @@ namespace StudentManagementSystem
 
         private void RemoveLecturer_btn(object sender, EventArgs e)
         {
-
+            ToggleRmvLecturerControls(false);
         }
         private void Exit_btn(object sender, EventArgs e)
         {
@@ -568,8 +630,7 @@ namespace StudentManagementSystem
             string specialCharacters = "! @ # $ % ^ & * ( )";
             EPosition selectedPosition = (EPosition)positionComboBox.SelectedItem;
             ESalary salary = (ESalary)Enum.Parse(typeof(ESalary), selectedPosition.ToString());
-            salaryTextBox.Text = salary.ToString();
-            Course selectedCourseIndex = (Course)courseComboBox.SelectedItem;
+            int selectedCourseIndex = courseComboBox.SelectedIndex;
 
             if (firstNameTextBox.Text.Trim() == "" || lastNameTextBox.Text.Trim() == "" || courseComboBox.SelectedIndex == -1 || positionComboBox.SelectedIndex == -1)
             {
@@ -587,18 +648,41 @@ namespace StudentManagementSystem
                 {
                     int newLecturerId = (lecturers != null && lecturers.Any()) ? lecturers.Max(x => x.Id) + 1 : 1;
 
-                    details = newLecturerId + "," + firstName + "," + lastName + "," + selectedCourseIndex + "," + selectedPosition + "," + salary;
+                    details = newLecturerId + "," + firstName + "," + lastName + "," + selectedCourseIndex + ","  + (int)salary + "," + (int)selectedPosition;
                     sw = new StreamWriter(filePath, append: true);
                     sw.WriteLine(details);
                     sw.Close();
 
-                    Lecturer newLecturer = new Lecturer(newLecturerId, firstName, lastName, selectedPosition, salary, selectedCourseIndex);
+                    Lecturer newLecturer = new Lecturer(newLecturerId, firstName, lastName, selectedPosition, salary, courses[selectedCourseIndex]);
                     lecturers.Add(newLecturer);
 
                 }
             }
 
             MessageBox.Show("New Lecturer Added!");
+            ClearInputFields();
+        }
+
+        private void checkBtn_Click(object sender, EventArgs e)
+        {
+            string removeId = idTextBox.Text;
+            if (string.IsNullOrEmpty(removeId))
+            {
+                MessageBox.Show("Please fill all elements in!");
+            }
+            else 
+            {
+                foreach (var l in lecturers)
+                {
+                    if(l.Id.ToString() == removeId)
+                    {
+                                              
+                    }
+                }
+
+               
+            }
+            
             ClearInputFields();
         }
     }

@@ -64,7 +64,8 @@
             this.positionComboBox = new System.Windows.Forms.ComboBox();
             this.saveLecturerBtn = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.salaryTextBox = new System.Windows.Forms.TextBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.checkBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -452,21 +453,34 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label11.Location = new System.Drawing.Point(238, 273);
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(575, 57);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 17);
+            this.label11.Size = new System.Drawing.Size(108, 17);
             this.label11.TabIndex = 35;
-            this.label11.Text = "Salary";
+            this.label11.Text = "Search using ID";
             this.label11.Visible = false;
             // 
-            // salaryTextBox
+            // idTextBox
             // 
-            this.salaryTextBox.Location = new System.Drawing.Point(203, 293);
-            this.salaryTextBox.Name = "salaryTextBox";
-            this.salaryTextBox.Size = new System.Drawing.Size(121, 20);
-            this.salaryTextBox.TabIndex = 36;
-            this.salaryTextBox.Visible = false;
+            this.idTextBox.Location = new System.Drawing.Point(573, 77);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(110, 20);
+            this.idTextBox.TabIndex = 36;
+            this.idTextBox.Visible = false;
+            // 
+            // checkBtn
+            // 
+            this.checkBtn.Location = new System.Drawing.Point(701, 75);
+            this.checkBtn.Name = "checkBtn";
+            this.checkBtn.Size = new System.Drawing.Size(75, 23);
+            this.checkBtn.TabIndex = 37;
+            this.checkBtn.Text = "Check";
+            this.checkBtn.UseVisualStyleBackColor = true;
+            this.checkBtn.Visible = false;
+            this.checkBtn.Click += new System.EventHandler(this.checkBtn_Click);
             // 
             // Form1
             // 
@@ -474,7 +488,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.ClientSize = new System.Drawing.Size(908, 521);
-            this.Controls.Add(this.salaryTextBox);
+            this.Controls.Add(this.checkBtn);
+            this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.saveLecturerBtn);
             this.Controls.Add(this.positionComboBox);
@@ -558,7 +573,8 @@
         private System.Windows.Forms.ComboBox positionComboBox;
         private System.Windows.Forms.Button saveLecturerBtn;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox salaryTextBox;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.Button checkBtn;
     }
 }
 

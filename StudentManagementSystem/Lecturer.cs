@@ -19,11 +19,11 @@ namespace StudentManagementSystem
 
         public enum ESalary
         {
-            LECTURER_SALARY = 85000,
-            SENIOR_LECTURER_SALARY = 100000,
-            PRINCIPAL_LECTURER_SALARY = 115000,
-            ASSOCIATE_PROFESSOR_SALARY = 130000,
-            PROFESSOR_SALARY = 145000
+            LECTURER = 85000,
+            SENIOR_LECTURER = 100000,
+            PRINCIPAL_LECTURER = 115000,
+            ASSOCIATE_PROFESSOR = 130000,
+            PROFESSOR = 145000
         }
 
         private EPosition position;

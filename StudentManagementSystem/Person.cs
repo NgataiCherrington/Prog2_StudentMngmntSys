@@ -24,7 +24,7 @@ namespace StudentManagementSystem
         public string LastName { get => lastName; set => lastName = value; }
 
         public string DisplayPersonId() => $"ID: {id}";
-        public string DisplayPersonName() => $"First name: {firstName}";
+        public string DisplayPersonName() => $"First name: {firstName} Last name: {lastName}";
         public string DisplayLastName() => $"Surname: {lastName}";
     }
 }
