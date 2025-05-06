@@ -58,8 +58,8 @@ namespace StudentManagementSystem
 
                 if (isAttendance)
                 {
-                    //int percentage = int.Parse(learnerDetails[4]);
-                    //learner = new Learner(id, firstName, lastName, percentage);
+                    int percentage = int.Parse(learnerDetails[4]);
+                    learner = new Learner(id, firstName, lastName, percentage);
                 }
 
                 else

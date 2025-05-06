@@ -404,9 +404,8 @@
             this.mark5TextBox.Location = new System.Drawing.Point(392, 249);
             this.mark5TextBox.Name = "mark5TextBox";
             this.mark5TextBox.Size = new System.Drawing.Size(110, 20);
-            this.mark5TextBox.TabIndex = 30;
+            this.mark5TextBox.TabIndex = 38;
             this.mark5TextBox.Visible = false;
-            this.mark5TextBox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // saveButton
             // 
@@ -528,7 +527,6 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
