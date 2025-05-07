@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="StudentManagementSystem.Course">
+    <Position X="10.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAAAgEAAAIAAgAAQQMAAEAAAAEAAAAIAAAQA=</HashCode>
+      <FileName>Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentManagementSystem.CourseAssessmentMark">
+    <Position X="12.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAgAAAAAAgAAACIAAACAAQAAAAQAAAAEAAAAgAAA=</HashCode>
+      <FileName>CourseAssessmentMark.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentManagementSystem.Department">
+    <Position X="14" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAEAAAQAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentManagementSystem.Form1" Collapsed="true">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>8GCAACAgASJgApDpCACAAZYiBMy7gAAwEUAIQBAIAAQ=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentManagementSystem.Institution">
+    <Position X="16" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAgAAAEAAAAAAAAAQAAAIEAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Institution.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentManagementSystem.Learner">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Learner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentManagementSystem.Lecturer">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="StudentManagementSystem.Lecturer.EPosition" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Lecturer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="StudentManagementSystem.Lecturer.ESalary" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Lecturer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAggAAgAIAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lecturer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentManagementSystem.Person">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAABIAACAAAAAAAAAAAAAAAAAAAAACAAAAgg=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentManagementSystem.Utils">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEAAAAAABAAAAAAAAAAAAgAAAAEAYAEAAAAAAAAAA=</HashCode>
+      <FileName>Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
